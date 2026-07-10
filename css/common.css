@@ -1,0 +1,193 @@
+/* Global Resets & Typography */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', sans-serif; 
+}
+
+body { 
+    background-color: #fbf9f6; 
+    color: #2d2722; 
+    overflow-x: hidden; /* Mobile horizontally scroll na ho */
+}
+
+.container { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    padding: 30px 15px; /* Mobile par edges chipke nahi */
+}
+
+/* 100% Fluid Responsive Navbar */
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background: #161311; 
+    padding: 15px 5%; 
+    color: white; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap; /* Content space kam hone par wrap ho sake */
+}
+
+.logo { 
+    font-size: 24px; 
+    font-weight: 800; 
+}
+
+.highlight { 
+    color: #f39c12; 
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Mobile links line breakdown manage karne ke liye */
+}
+
+nav a { 
+    margin-left: 20px; 
+    text-decoration: none; 
+    color: #ccc; 
+    font-weight: 600; 
+    transition: color 0.2s;
+    font-size: 15px;
+    padding: 5px 0;
+}
+
+nav a.active, nav a:hover { 
+    color: #f39c12; 
+}
+
+.cart-link { 
+    background: #e74c3c; 
+    padding: 6px 15px; 
+    border-radius: 20px; 
+    color: white !important; 
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#nav-cart-count { 
+    background: white; 
+    color: #e74c3c; 
+    padding: 1px 7px; 
+    border-radius: 50%; 
+    font-size: 12px; 
+    font-weight: bold;
+}
+
+/* Promo Banner / Strip */
+.promo-banner {
+    background-color: #e74c3c; 
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.promo-banner i {
+    margin-right: 5px;
+    color: #f1c40f; 
+}
+
+/* Global Footer */
+footer {
+    background-color: #161311;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* RESPONSIVE BREAKPOINT FOR TABLETS & MOBILES */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Logo upar, links niche */
+        gap: 15px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+    
+    nav {
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+    }
+    
+    nav a {
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+    
+    .cart-link {
+        margin-top: 5px;
+        width: 100%;
+        justify-content: center; /* Mobile par cart button bada ho jaye */
+    }
+    
+    .promo-banner {
+        font-size: 11px; /* Choti screen par text adjust ho */
+    }
+}
+/* ==========================================================================
+   🚨 HAMBURGER MENU RESPONSIVE STYLES
+   ========================================================================== */
+.hamburger-toggle {
+    display: none; /* Desktop par chupa rahega */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .hamburger-toggle {
+        display: block; /* Mobile par dikhega */
+    }
+    
+    .navbar {
+        flex-direction: row !important; /* Logo aur Hamburger ek line mein rahenge */
+        justify-content: space-between;
+        padding: 15px 20px !important;
+    }
+    
+    nav {
+        display: none; /* By default menu mobile par band rahega */
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        background: #1c1815;
+        padding: 20px 0;
+        margin-top: 15px;
+        border-top: 1px solid #332a24;
+    }
+    
+    /* Jab JS toggle karegi tab menu dikhega */
+    nav.show-menu {
+        display: flex !important;
+    }
+    
+    nav a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 16px;
+    }
+    
+    .cart-link {
+        width: 80% !important;
+        margin: 5px auto 0 auto !important;
+    }
+}

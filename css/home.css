@@ -1,0 +1,164 @@
+/* css/home.css */
+
+/* Full Screen Premium Hero Section Layout */
+.hero-section {
+    background: linear-gradient(rgba(22, 19, 17, 0.75), rgba(22, 19, 17, 0.85)), 
+                url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.sub-title {
+    color: #f39c12;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 15px;
+    background: rgba(243, 156, 18, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Action Control Buttons Module */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Primary Button Structure */
+.btn-primary {
+    background-color: #f39c12;
+    color: #161311 !important;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #e67e22;
+    transform: translateY(-2px);
+}
+
+/* Secondary Outline Button Structure */
+.btn-outline {
+    background-color: transparent;
+    color: white !important;
+    border: 2px solid white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-outline:hover {
+    background-color: white;
+    color: #161311 !important;
+    transform: translateY(-2px);
+}
+
+/* Highlights Box Panels Grid styling */
+.highlights-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: -40px; /* Overlaps hero section beautifully */
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.highlight-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+}
+
+.highlight-card i {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.text-gold { color: #f1c40f; }
+.text-green { color: #27ae60; }
+.text-orange { color: #e67e22; }
+
+.highlight-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #161311;
+}
+
+.highlight-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Mobile Screen Responsiveness fixes */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    .hero-content p {
+        font-size: 15px;
+    }
+    .hero-section {
+        padding: 80px 15px;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .btn-primary, .btn-outline {
+        width: 100%;
+        justify-content: center;
+    }
+    .highlights-section {
+        margin-top: 20px;
+        padding: 0 15px;
+    }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bombay Chaupati Cafe | Sikandra, Agra</title>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Files Link -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">Bombay <span class="highlight">Chaupati</span></div>
+    
+    <!-- Naya Hamburger Button (Sirf Mobile par dikhega) -->
+    <button class="hamburger-toggle" id="menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Nav links jisme ek id jodi hai 'nav-menu' -->
+    <nav id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i> Cart <span id="nav-cart-count">0</span>
+        </a>
+    </nav>
+</header>
+
+    <!-- Interactive Top Promo Strip -->
+    <div class="promo-banner">
+        <p><i class="fas fa-percentage"></i> Special Discount Offer: 10% OFF above ₹250 | 20% OFF above ₹500!</p>
+    </div>
+
+    <!-- Hero Section (Restaurant Main Face) -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="sub-title">Agra's Favourite 100% Veg Street Food & Cafe</span>
+            <h1>Delicious & Crispy Fast Food Corner</h1>
+            <p>Savour the best Pizza Momos, Tandoori Chaap, Burgers, and Wok-tossed Chinese delicacies cooked fresh with pristine hygiene.</p>
+            
+            <!-- The Two Requested Primary Buttons -->
+            <div class="hero-actions">
+                <a href="menu.html" class="btn btn-primary">
+                    <i class="fas fa-utensils"></i> Explore Menu
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    <i class="fas fa-phone-alt"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges & Highlights Section -->
+    <section class="container highlights-section">
+        <div class="highlight-card">
+            <i class="fas fa-star text-gold"></i>
+            <h3>4.9 Google Rating</h3>
+            <p>Highly rated by 100+ local food lovers in Sikandra for authentic taste.</p>
+        </div>
+        <div class="highlight-card">
+            <i class="fas fa-leaf text-green"></i>
+            <h3>100% Pure Vegetarian</h3>
+            <p>Completely separate, pure veg kitchen management and fresh ingredients.</p>
+        </div>
+        <div class="highlight-card">
+            <i class="fas fa-shipping-fast text-orange"></i>
+            <h3>Direct Kitchen Delivery</h3>
+            <p>Avoid heavy platform commission fees. Order directly via WhatsApp.</p>
+        </div>
+    </section>
+
+    <!-- Footer Segment -->
+    <footer>
+        <p>&copy; 2026 Bombay Chaupati Cafe. Built for Client Demonstration Panel.</p>
+    </footer>
+
+    <!-- Shared Javascript Database Link -->
+    <script src="js/database.js"></script>
+</body>
+</html>

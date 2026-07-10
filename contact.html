@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bombay Chaupati Cafe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contact.css">
+
+
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Bombay <span class="highlight">Chaupati</span></div>
+        <button class="hamburger-toggle" id="menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html" class="active">Contact Us</a>
+            <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart <span id="nav-cart-count">0</span></a>
+        </nav>
+    </header>
+
+    <div class="promo-banner">
+        <p><i class="fas fa-percentage"></i> Special Discount Offer: 10% OFF above ₹250 | 20% OFF above ₹500!</p>
+    </div>
+
+    <main class="container">
+        <div class="contact-grid">
+            
+            <!-- Left Side Details -->
+            <div class="info-card">
+                <h2 class="contact-title"><i class="fas fa-store"></i> Our Sikandra Outlet</h2>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Address:</strong>
+                        <p>Ph-1, Holi Public School, In Front, Bhawna Estate, 03 Ground Floor Nirab Nikunj, Sikandra, Agra, Uttar Pradesh 282007</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Opening Hours:</strong>
+                        <p>Open Daily: 11:00 AM – 11:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Phone / Customer Care:</strong>
+                        <p>+91 86848 46361, +91 84109 78799</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Form -->
+            <div class="form-card">
+                <h2 class="contact-title"><i class="fas fa-envelope"></i> Send Us a Message</h2>
+                <form class="contact-form" onsubmit="alert('Thank you for reaching out! We will contact you soon.'); return false;">
+                    <input type="text" placeholder="Your Full Name" required>
+                    <input type="email" placeholder="Your Email Address" required>
+                    <textarea placeholder="Write your message here..." rows="4" required></textarea>
+                    <button type="submit" class="btn-submit">Submit Message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 🚨 REAL GOOGLE MAP EMBED SECTION -->
+        <div class="map-section">
+            <h3><i class="fas fa-map-marked-alt" style="color: #e74c3c;"></i> Find Us On Google Maps</h3>
+            <div class="map-container">
+                <!-- Embedded Live Iframe Map matching Bhawna Estate / Sikandra coordinates -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s0x3974776100000001:0x2b86a3df7a78efeb!8m2!3d27.21448!4d77.93512!3m4!1s0x3974777b7074360b:0xf18ef9b3cfcc6ab0!2sBombay%20Chaupati%20Fast%20Food%20Corner!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/database.js"></script>
+</body>
+</html>

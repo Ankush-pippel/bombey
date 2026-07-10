@@ -1,0 +1,45 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bombay Chaupati Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">Bombay <span class="highlight">Chaupati</span></div>
+    
+    <!-- Naya Hamburger Button (Sirf Mobile par dikhega) -->
+    <button class="hamburger-toggle" id="menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Nav links jisme ek id jodi hai 'nav-menu' -->
+    <nav id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i> Cart <span id="nav-cart-count">0</span>
+        </a>
+    </nav>
+</header>
+
+    <main class="container">
+        <h1 class="page-title">Select a Dish to View Varieties</h1>
+        <div id="menu-grid" class="menu-grid"></div>
+    </main>
+
+     <footer>
+        <p>&copy; 2026 Bombay Chaupati Cafe. Built for Client Demonstration Panel.</p>
+    </footer>
+
+    <script src="js/database.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
