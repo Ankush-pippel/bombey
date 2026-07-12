@@ -1,6 +1,6 @@
 let currentDish = null;
+let currentQty = 1; // 👈 Naya quantity tracker
 
-// Page load hone par saari details render karna
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const dishId = urlParams.get('dish');
@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     currentDish = BOMBAY_CHAUPATI_MENU.find(i => i.id === dishId);
     if (!currentDish) return;
 
-    // Dish dynamic layout rendering
     document.getElementById('dish-name').textContent = currentDish.name;
     document.getElementById('dish-desc').textContent = currentDish.description;
     document.getElementById('dish-img').src = currentDish.image;
@@ -27,11 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updatePrice(currentDish.variants[0].price);
-
-    // Dynamic Card Pop-up Box HTML automatically inject karna taaki id missing ka koi jhanjhat hi na rahe
     injectCustomModalHTML();
 
-    // Button Listener Bind Setup
+    // 👇 Quantity Plus/Minus Button Listeners
+    document.getElementById('qty-plus').addEventListener('click', () => {
+        currentQty++;
+        document.getElementById('qty-value').textContent = currentQty;
+    });
+
+    document.getElementById('qty-minus').addEventListener('click', () => {
+        if (currentQty > 1) {
+            currentQty--;
+            document.getElementById('qty-value').textContent = currentQty;
+        }
+    });
+
     const addToCartBtn = document.getElementById('add-to-cart-btn');
     if (addToCartBtn) {
         addToCartBtn.addEventListener('click', addToCartAction);
@@ -42,14 +51,13 @@ function updatePrice(value) {
     document.getElementById('live-price').textContent = `₹${value}`;
 }
 
-// Automatic Modal Injector Engine
 function injectCustomModalHTML() {
-    if (document.getElementById('custom-confirm-modal')) return; // Agar pehle se hai toh dobara na bane
+    if (document.getElementById('custom-confirm-modal')) return;
 
     const modalWrapper = document.createElement('div');
     modalWrapper.id = 'custom-confirm-modal';
     modalWrapper.className = 'modal-overlay';
-    modalWrapper.style.display = 'none'; // Shuruat mein hidden rahega
+    modalWrapper.style.display = 'none';
     
     modalWrapper.innerHTML = `
         <div class="modal-card">
@@ -66,7 +74,6 @@ function injectCustomModalHTML() {
     document.body.appendChild(modalWrapper);
 }
 
-// Main Add to Cart Logic Function Execution
 function addToCartAction() {
     const selected = document.querySelector('input[name="variant"]:checked');
     if (!selected) return;
@@ -81,39 +88,39 @@ function addToCartAction() {
     const okBtn = document.getElementById('modal-ok-btn');
     const cancelBtn = document.getElementById('modal-cancel-btn');
 
-    // Dynamic setups data integration
     modalImg.src = currentDish.image;
-    modalMessage.innerHTML = `Add <b>${currentDish.name} (${variantName})</b> to your cart?`;
+    modalMessage.innerHTML = `Add <b>${currentQty} x ${currentDish.name} (${variantName})</b> to your cart?`;
     actionsBox.style.display = "flex"; 
-    
-    // Smooth flex popup pop
     modal.style.display = "flex";
 
-    // Dynamic Event handling configuration clones
     const newOkBtn = okBtn.cloneNode(true);
     const newCancelBtn = cancelBtn.cloneNode(true);
     okBtn.parentNode.replaceChild(newOkBtn, okBtn);
     cancelBtn.parentNode.replaceChild(newCancelBtn, cancelBtn);
 
-    // 👍 JAB USER "OK" PAR CLICK KARE
     newOkBtn.addEventListener('click', () => {
         SharedCart.add({
             id: currentDish.id,
             name: currentDish.name,
             variant: variantName,
             price: parseInt(price),
-            qty: 1
+            qty: currentQty   // 👈 Ab fixed 1 nahi, selected quantity jayegi
         });
-        
-        modalMessage.innerHTML = `<span style="color: #2e7d32; font-size: 18px; font-weight: bold;"><i class="fas fa-check-circle"></i> Added to cart successfully!</span>`;        actionsBox.style.display = "none";
+
+        modalMessage.innerHTML = `<span style="color: #2e7d32; font-size: 18px; font-weight: bold;"><i class="fas fa-check-circle"></i> Added to cart successfully!</span>`;
+        actionsBox.style.display = "none";
+
+        // Reset quantity back to 1 for next selection
+        currentQty = 1;
+        document.getElementById('qty-value').textContent = 1;
+
         setTimeout(() => {
             modal.style.display = "none";
         }, 2000);
     });
 
-    // 👎 JAB USER "CANCEL" PAR CLICK KARE
     newCancelBtn.addEventListener('click', () => {
-       modalMessage.innerHTML = `<span style="color: #c0392b; font-size: 18px; font-weight: bold;"><i class="fas fa-times-circle"></i> Item not added</span>`;
+        modalMessage.innerHTML = `<span style="color: #c0392b; font-size: 18px; font-weight: bold;"><i class="fas fa-times-circle"></i> Item not added</span>`;
         actionsBox.style.display = "none";
 
         setTimeout(() => {
