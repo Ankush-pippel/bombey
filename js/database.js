@@ -80,15 +80,27 @@ const SharedCart = {
     add(item) {
         let cart = this.get();
         let exist = cart.findIndex(i => i.id === item.id && i.variant === item.variant);
-        if (exist > -1) { cart[exist].qty += 1; } else { cart.push(item); }
-        this.save(cart);
-    },
+        if (exist > -1) { 
+            cart[exist].qty += item.qty; // 👈 Selected quantity add hogi, hamesha +1 nahi
+        }else { 
+            cart.push(item); 
+        }
+    this.save(cart);
+},
     updateBadge() {
-        const badge = document.getElementById('nav-cart-count');
-        if (badge) { badge.textContent = this.get().reduce((s, i) => s + i.qty, 0); }
-    }
+    const totalQty = this.get().reduce((s, i) => s + i.qty, 0);
+    
+    const navBadge = document.getElementById('nav-cart-count');
+    if (navBadge) { navBadge.textContent = totalQty; }
+
+    const floatBadge = document.getElementById('floating-cart-count');
+    if (floatBadge) { floatBadge.textContent = totalQty; }
+}
 };
-document.addEventListener('DOMContentLoaded', () => SharedCart.updateBadge());
+document.addEventListener('DOMContentLoaded', () => {
+    SharedCart.updateBadge();
+    injectFloatingCartButton();
+});
 
 
 // Hamburger Menu Toggle Function for Mobile Screens
@@ -104,4 +116,23 @@ function toggleMobileMenu() {
     } else {
         toggleIcon.className = "fas fa-bars";
     }
+}
+
+// Floating Cart Button ko har page par automatically inject karna
+function injectFloatingCartButton() {
+    // Agar hum khud cart.html page par hain, toh floating button mat dikhao
+    if (window.location.pathname.includes('cart.html')) return;
+
+    const floatBtn = document.createElement('a');
+    floatBtn.href = 'cart.html';
+    floatBtn.className = 'floating-cart-btn';
+    floatBtn.innerHTML = `
+        <i class="fas fa-shopping-cart"></i>
+        <span class="floating-cart-badge" id="floating-cart-count">0</span>
+    `;
+    document.body.appendChild(floatBtn);
+
+    // Badge count update karna
+    const count = SharedCart.get().reduce((s, i) => s + i.qty, 0);
+    document.getElementById('floating-cart-count').textContent = count;
 }
