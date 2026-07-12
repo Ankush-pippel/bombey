@@ -191,3 +191,58 @@ footer {
         margin: 5px auto 0 auto !important;
     }
 }
+
+
+/* Floating Cart Button (Mobile + Desktop dono par dikhega) */
+.floating-cart-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    background: #e74c3c;
+    color: white;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    z-index: 1500;
+    text-decoration: none;
+    font-size: 24px;
+    transition: transform 0.2s;
+}
+
+.floating-cart-btn:hover {
+    transform: scale(1.08);
+    background: #c0392b;
+}
+
+.floating-cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #161311;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    padding: 0 4px;
+}
+
+/* Mobile par thoda chhota aur neeche se safe distance */
+@media (max-width: 768px) {
+    .floating-cart-btn {
+        width: 52px;
+        height: 52px;
+        bottom: 18px;
+        right: 15px;
+        font-size: 20px;
+    }
+}
