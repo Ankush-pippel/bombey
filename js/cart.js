@@ -39,7 +39,9 @@ function handleOrderSubmit(e) {
     let total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
     
     let msg = `*🔴 NEW CAFE ORDER (DEMO) 🔴*\n\n*Customer:* ${name}\n*Address:* ${address}\n\n*Items:*\n`;
-    cart.forEach(i => { msg += `• ${i.name} (${i.variant}) x ${i.qty}\n`; });
+    cart.forEach(i => {
+        const plateLabel = i.qty > 1 ? "Plates" : "Plate";
+        msg += `• ${i.name} (${i.variant}) x ${i.qty}\n`; });
     msg += `\n*Total Amount: ₹${total}*`;
 
     localStorage.removeItem('demo_cart');
